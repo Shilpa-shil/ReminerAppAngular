@@ -1,19 +1,24 @@
-<form   class="border bg-light bg-gradient bg-opacity-25 rounded-4 border border-gradient border-light shadow-lg p-3 mb-5 bg-body rounded position-relative">
+
+<form [formGroup]="eventForm" (ngSubmit)="addEvent()" class="border bg-light bg-gradient bg-opacity-25 rounded-4 border border-gradient border-light shadow-lg p-3 mb-5 bg-body rounded position-relative">
     <h2 class="text-center ">Events</h2>
 
-    <div class="mt-3 p-2">
-        <label for="date">Date</label>
-        <input type="date" id="date" class="form-control" placeholder="Enter Date">
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <div class="mt-3 p-2">
+            <label for="date">Date</label>
+            <input formControlName="date" type="date" id="date" class="form-control" placeholder="Enter Date">
+        </div>
+    
+        <div class="mt-3 p-2">
+            <label  for="">Description</label><br><textarea formControlName="event" name="" id="event" cols="75" rows="3"></textarea>
+        </div>
+        <div class="mt-3 p-2">
+            <button class="btn btn-danger position-absolute top-10 start-10 bottom-0 start-8">Add</button>
+            <button type="button" class="btn btn-secondary btn-lg position-absolute top-2 start-5 bottom-0 end-0">
+                <a routerLink="/view-event">View Event</a></button>
+        </div>
     </div>
-
-    <div class="mt-3 p-2">
-        <label for="">Description</label><br><textarea name="" id="" cols="75" rows="3"></textarea>
-    </div>
-    <div class="mt-3 p-2">
-        <button class="btn btn-danger position-absolute top-10 start-10 bottom-0 start-8" routerLink="dashboard">Add</button>
-        <button type="button" class="btn btn-secondary btn-lg position-absolute top-2 start-5 bottom-0 end-0">View Events</button>
-
-    </div>
-
-
+    <div class="col-3"></div>
+</div>   
 </form>

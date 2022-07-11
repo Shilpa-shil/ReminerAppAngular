@@ -1,0 +1,29 @@
+
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <h1 style="color:rgb(18, 31, 43)">Events</h1>
+
+        <table style="color:rgb(3, 20, 34)">
+   
+            <tr>
+                <th>DATE</th>
+                <th>EVENT</th>
+            </tr>
+            
+            <tbody>
+                <tr *ngFor="let i of events">
+                    <th>{{i.date}}</th>
+                    <th>{{i.event}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-3"></div>
+</div>
+
+<a routerLink="/dashboard" style="font-size: 20px;" >HOME</a>
+
+
+
+
