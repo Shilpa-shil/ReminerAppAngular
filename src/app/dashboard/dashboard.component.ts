@@ -10,33 +10,53 @@ import { DataService } from '../Services/data.service';
 })
 export class DashboardComponent implements OnInit {
 
-  eventForm=this.fb.group({
-    date : [''],
-    event : ['']
+  eventForm = this.fb.group({
+    date: ['',[Validators.required]],
+    event: ['',[Validators.required]]
   })
 
-  
-  constructor(private ds:DataService, private fb:FormBuilder, private router:Router) { }
-
-  ngOnInit(): void {
+  user:any
+  constructor(private ds: DataService, private fb: FormBuilder, private router: Router) { 
+    this.user = localStorage.getItem('currentUser')
   }
 
- addEvent(){
-  var date=this.eventForm.value.date
-  var event=this.eventForm.value.event
-
-  console.log(date);
-  console.log(event);
-  
-  this.ds.addEvent(date,event)
-  .subscribe((result:any)=>{
-    if(result){
-      alert(result.message)
-      this.router.navigateByUrl('event')
+  ngOnInit(): void {
+    if(!localStorage.getItem("currentUserid"))
+    {
+      alert("pls login")
+      this.router.navigateByUrl("")
     }
-  },
-  result=>{
-    alert(result.error.message)
-  })
- } 
+  }
+
+  addEvent() {
+    var date = this.eventForm.value.date
+    var event = this.eventForm.value.event
+
+    console.log(date);
+    console.log(event);
+
+    if(this.eventForm.valid)
+    {
+    this.ds.addEvent(date, event)
+      .subscribe((result: any) => {
+        if (result) {
+          alert(result.message)
+          this.router.navigateByUrl('event')
+        }
+      },
+        result => {
+          alert(result.error.message)
+        })
+  }
+  else{
+    alert("invalid form")
+  }
+  }
+  logout() {
+    localStorage.removeItem("currentUserid")
+    localStorage.removeItem("currentUsername")
+    localStorage.removeItem("token")
+    this.router.navigateByUrl("")
+  }
+
 }

@@ -1,24 +1,76 @@
-
-<form [formGroup]="eventForm" (ngSubmit)="addEvent()" class="border bg-light bg-gradient bg-opacity-25 rounded-4 border border-gradient border-light shadow-lg p-3 mb-5 bg-body rounded position-relative">
-    <h2 class="text-center ">Events</h2>
-
-<div class="row">
-    <div class="col-3"></div>
-    <div class="col-6">
-        <div class="mt-3 p-2">
-            <label for="date">Date</label>
-            <input formControlName="date" type="date" id="date" class="form-control" placeholder="Enter Date">
+<nav class="navbar navbar-expand-lg navbar-light sticky-top"
+    style="background-color:rgb(255, 255, 255); height: 100px ;">
+    <div class="container-fluid">
+        <a class="navbar-brand"></a>
+        <div class="clock-icon">
+            <a class="icon-name" href=""><i class="bi bi-alarm fa-3x"></i><span class="remind">Remind Me</span></a>
         </div>
-    
-        <div class="mt-3 p-2">
-            <label  for="">Description</label><br><textarea formControlName="event" name="" id="event" cols="75" rows="3"></textarea>
-        </div>
-        <div class="mt-3 p-2">
-            <button class="btn btn-danger position-absolute top-10 start-10 bottom-0 start-8">Add</button>
-            <button type="button" class="btn btn-secondary btn-lg position-absolute top-2 start-5 bottom-0 end-0">
-                <a routerLink="/view-event">View Event</a></button>
+        <!-- <img id="" src="../../assets/nav2.png" alt="no image" width="300" height="75"> -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 "></ul>
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="navbar-brand h1 nav-link text-black text-strong">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbar-brand h1 nav-link text-black">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbar-brand h1 nav-link text-black">CONTACT</a>
+                </li>
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        PROFILE
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item">Account</a></li>
+                        <li><a (click)=logout() class="dropdown-item">Logout</a></li>
+                    </ul>
+                </div>
+            </ul>
         </div>
     </div>
-    <div class="col-3"></div>
-</div>   
-</form>
+</nav>
+
+<div class="dashboard">
+    <!-- Logout button -->
+    <!-- <button class="btn btn-warning" (click)="logout()"  style="float:right; margin-right:20px;">Logout</button> -->
+
+    <h2 class="welcome">Welcome {{user}}</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+
+                <form [formGroup]="eventForm" (ngSubmit)="addEvent()"
+                    class="add_event shadow-lg p-3 mb-5 bg-body rounded bg-opacity-80 rounded-4">
+                    <h2 class="text-center ">Add Your Events</h2>
+                    <div class="row">
+
+                        <div class="log1 col">
+                            <div class="mt-3 ps-5">
+                                <!-- <label for="date">Date</label> -->
+                                <input formControlName="date" type="date" id="date" placeholder="Enter Date">
+                            </div>
+                            <div class="mt-3 ps-5">
+                                <textarea formControlName="event" id="event"
+                                    cols="65" rows="8" placeholder="Add your event here"></textarea>
+                            </div>
+                            <div class="mt-3 p-2 d-flex justify-content-center">
+                                <button class="btn btn-secondary ">Add</button>&nbsp;&nbsp;
+                                <button type="button" class="btn btn-secondary btn-sm ">
+                                    <a class="view-button" routerLink="/view-event">View Event</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+</div>

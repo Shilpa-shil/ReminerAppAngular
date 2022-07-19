@@ -25,4 +25,15 @@ export class ViewEventComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  removeEvent(k:any){
+    this.ds.removeEvent(k)
+    .subscribe((result:any)=>{
+      if(result){
+        window.location.reload();
+      }
+    },
+    result=>{
+      alert(result.error.message)
+    })
+  }
 }

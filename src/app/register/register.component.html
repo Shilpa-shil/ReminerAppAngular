@@ -1,11 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-light sticky-top"
+    style="background-color:rgb(255, 255, 255); height: 100px ;">
+    <div>
+        <div class="clock-icon">
+            <a class="icon-name" href=""><i class="bi bi-alarm fa-3x "></i><span class="remind">Remind Me</span></a>
+        </div>
+       
+    </div>
+</nav>
 
 
+
+<div class="registerform">
 <div class="container">
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4 regform">
-            <form [formGroup]="registerForm" (ngSubmit)="register()" action="" class="border bg-light">
-                <h1 class="text-center" style="color:rgb(65, 109, 44);"><strong>Register</strong></h1>
+            
+            <form [formGroup]="registerForm" (ngSubmit)="register()" action="" class="shadow-lg p-3 mb-5 bg-body rounded">
+                <h1 class="text-center" style="color:rgb(0, 0, 0); padding-top: 10px;"><strong>REGISTER</strong></h1>
 
                 <div class="mt-3 p-2">
                     <input type="text" formControlName="username" id="username" class="form-control" placeholder="Username">
@@ -20,19 +32,20 @@
 
 
                 <div class="mt-3 p-2">
-                    <input type="text" formControlName="password" id="password" class="form-control" placeholder="Password">
+                    <input type="password" formControlName="password" id="password" class="form-control" placeholder="Password">
                 </div>
                 <div *ngIf="this.registerForm.get('password')?.touched&&this.registerForm.get('password')?.errors" style="color:red">Invalid password</div>
 
 
                 <div class="mt-3 p-2">
-                    <button class="btn btn-success">Register</button>
+                    <button class="btn btn-secondary">Register</button>
                 </div>
-
-                <p style="color:rgb(0, 0, 0);align-items:baseline;">Already Registered? <a routerLink="">Login</a></p>
+<br><br>
+                <p style="padding-left:120px; color:rgb(0, 0, 0);align-items:baseline;">Already Registered? <a routerLink="">Login</a></p>
 
             </form>
         </div>
        <div class="col-4"></div>
         </div>
         </div> 
+    </div>

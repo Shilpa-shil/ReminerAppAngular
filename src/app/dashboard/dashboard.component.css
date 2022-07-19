@@ -1,0 +1,33 @@
+.dashboard{
+    height: 1000px;
+    background-image: url(../../assets/flat-lay-desk-calendar-analog-clock.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center center;
+    background-blend-mode: multiply;
+    width:100%;
+    position: relative;
+    
+} 
+.add_event{
+    margin-top: 120px;
+}
+.icon-name{
+    text-decoration: none;
+    color: black;    
+}
+
+.remind{
+    font-size: 50px;
+    margin-left: 10px;
+    color: rgb(56, 53, 53);
+}
+.welcome{
+    padding-top: 45px;
+    padding-left: 20px;
+}
+.view-button{
+    text-decoration: none;
+    color: white;   
+}
+
